@@ -1,81 +1,84 @@
+import { FaSearch, FaShoppingCart, FaBars } from 'react-icons/fa';
+import { MdLocationOn } from 'react-icons/md';
+import { IoIosArrowDown } from 'react-icons/io';
 
 export default function HeaderComponent() {
   return (
-    <header className="w-full flex flex-col bg-[#131921]">
-      <section className="w-full max-w-[1500px] mx-auto flex items-center">
-        <section className="w-full">
-          <picture>
-            <img
-              src="https://t3.ftcdn.net/jpg/03/99/04/82/360_F_399048295_bQCz5V7M2QZVnuv07lwHuMiQsR4X6o7X.jpg" 
-              alt="Icono de amazon"
-              title="Amazon es el mejor y mas caro"
-              height="50"
-              width="100"
-            />
-          </picture>
-        </section>
-        <section className="w-[100px] flex items-center gap-[10px]">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="9" r="2.5" fill="#fff"/><path fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 20.5c0 0 -6 -7 -6 -11.5c0 -3.31 2.69 -6 6 -6c3.31 0 6 2.69 6 6c0 4.5 -6 11.5 -6 11.5Z"/></svg>
-          <div className="flex flex-col text-white">
-            <span className="text-[12px] font-semibold">Enviar a</span>
-            <span className="text-[14px] font-bold">Colombia</span>
+    <header className="bg-[#131921] text-white text-sm">
+      {/* Sección Superior */}
+      <div className="flex items-center justify-between px-4 py-2 max-w-[1500px] mx-auto">
+        {/* Logo y Ubicación */}
+        <div className="flex items-center gap-4">
+          <div className="text-2xl font-bold">amazon</div>
+          <div className="flex items-center text-xs leading-tight">
+            <MdLocationOn className="text-xl mr-1" />
+            <div className="flex flex-col">
+              <span className="text-gray-300">Enviar a</span>
+              <span className="font-bold">Colombia</span>
+            </div>
           </div>
-        </section>
-        <section className="w-[calc(100%-610px)] h-10 flex items-center">
-          <select className="h-full w-[100px] bg-[#b3b3b3]" name="" id="">
-            <option value="">Todos</option>
-            {/* @for (item of listItems(); track item.id) {
-              <option [value]="item.id"></option>
-            } */}
+        </div>
+
+        {/* Barra de Búsqueda */}
+        <div className="flex flex-1 max-w-[800px] mx-4">
+          <select className="bg-gray-100 text-black text-xs px-2 py-2 rounded-l-md border-r border-gray-300">
+            <option>Todos</option>
           </select>
-          <input className="h-full w-[calc(100-140px)] p-2.5 border-none outline-0 bg-white" type="text" />
-          <div className="h-full w-[40px] bg-[#febd69] flex justify-center items-center rounded-r-[5px]">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"><path d="M10.76 13.24c-2.34 -2.34 -2.34 -6.14 0 -8.49c2.34 -2.34 6.14 -2.34 8.49 0c2.34 2.34 2.34 6.14 0 8.49c-2.34 2.34 -6.14 2.34 -8.49 0Z"/><path d="M10.5 13.5l-7.5 7.5"/></g></svg>
+          <input
+            type="text"
+            placeholder="Buscar en Amazon"
+            className="flex-1 px-3 py-2 text-black outline-none bg-white"
+          />
+          <button className="bg-[#febd69] px-3 flex items-center justify-center rounded-r-md">
+            <FaSearch className="text-black" />
+          </button>
+        </div>
+
+        {/* Idioma, Cuenta, Pedidos, Carrito */}
+        <div className="flex items-center gap-6">
+          <div className="flex items-center gap-1">
+            <img
+              src="https://flagcdn.com/us.svg"
+              alt="us-flag"
+              className="w-4 h-4"
+            />
+            <span>ES</span>
+            <IoIosArrowDown className="text-xs" />
           </div>
-        </section>
-        <section className="header__superior--flag">
-          <span>
-            ES
+          <div className="leading-tight">
+            <p className="text-gray-300">Hola, Identifícate</p>
+            <p className="font-bold">Cuenta y Listas</p>
+          </div>
+          <div className="leading-tight">
+            <p className="text-gray-300">Devoluciones</p>
+            <p className="font-bold">y pedidos</p>
+          </div>
+          <div className="flex items-center">
+            <FaShoppingCart className="text-2xl" />
+            <span className="ml-1 font-bold">Carrito</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Sección Menú */}
+      <nav className="bg-[#232f3e] text-white text-sm">
+        <div className="max-w-[1500px] mx-auto flex items-center gap-4 px-4 py-2">
+          <div className="flex items-center gap-1 cursor-pointer">
+            <FaBars />
+            <span className="font-bold">Todo</span>
+          </div>
+          <span className="hover:underline cursor-pointer">Prime</span>
+          <span className="hover:underline cursor-pointer">Prime Video</span>
+          <span className="hover:underline cursor-pointer">Ofertas del Día</span>
+          <span className="hover:underline cursor-pointer">Listas</span>
+          <span className="hover:underline cursor-pointer">Servicio al Cliente</span>
+          <span className="hover:underline cursor-pointer">Tarjetas de Regalo</span>
+          <span className="hover:underline cursor-pointer">Vender</span>
+          <span className="ml-auto text-xs text-gray-300">
+            Prime entrega gratis desde EE. UU.
           </span>
-          {/* <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 15l-5 -5M12 15l5 -5"/></svg> */}
-        </section>
-        <section className="header__superior--auth">
-          <div>
-            <span>Hola, identificate</span>
-            <span>Cuenta y listas</span>
-          </div>
-          <div>
-            {/* <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 15l-5 -5M12 15l5 -5"/></svg> */}
-          </div>
-        </section>
-        <section className="header__superior--refunds">
-          <span>Devoluciones</span>
-          <span>y pedidos</span>
-        </section>
-        <section className="header__superior--cart">
-          <div>
-            {/* <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"><path d="M9 7h11c0.55 0 1 0.45 1 1v11c0 0.55 -0.45 1 -1 1h-16c-0.55 0 -1 -0.45 -1 -1v-11c0 -0.55 0.45 -1 1 -1Z"/><path d="M9 7v-3c0 -0.55 0.45 -1 1 -1h4c0.55 0 1 0.45 1 1v3"/></g></svg> */}
-          </div>
-          <div>
-            <span>Carrito</span>
-          </div>
-        </section>
-      </section>
-      <section className="header__inferior">
-        <section>
-          <p>
-            {/* <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-dasharray="8" stroke-dashoffset="8" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"><path d="M12 5h6M12 5h-6" stroke-dashoffset="0"/><path d="M12 10h6M12 10h-6" stroke-dashoffset="0"/><path d="M12 15h6M12 15h-6" stroke-dashoffset="0"/><path d="M12 20h6M12 20h-6" stroke-dashoffset="0"/></g></svg> */}
-            Todo
-          </p>
-          <p>Prime</p>
-          <p>Prime video</p>
-          <p>Ofertas del Día</p>
-          <p>Listas</p>
-          <p>Servicio al Cliente</p>
-          <p>Tarjetas de Regalo</p>
-          <p>Vender</p>
-        </section>
-      </section>
+        </div>
+      </nav>
     </header>
   )
 }
