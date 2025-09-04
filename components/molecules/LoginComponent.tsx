@@ -20,7 +20,7 @@ export default function LoginComponent() {
   const onSubmit: SubmitHandler<LoginDTO> = (data) => {
     loginService(data)
     .then((info) => {
-      console.log('info', info);
+      localStorage.setItem('token', info.access_token)
     })
     .catch(e => {
       console.error('Error en solicitud');
@@ -47,13 +47,13 @@ export default function LoginComponent() {
         />
       </div>
       <div>
-        <label htmlFor="email" className="font-semibold">
+        <label htmlFor="password" className="font-semibold">
           Introduce la contraseña
         </label>
         <input
           {...register("password")}
-          type="text"
-          id="email"
+          type="password"
+          id="password"
           className="mt-1 w-full border border-gray-400 rounded-sm px-3 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
         />
       </div>
