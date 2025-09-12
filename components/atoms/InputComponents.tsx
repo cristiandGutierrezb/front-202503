@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form"
+import { UseFormRegister } from "react-hook-form"
 
 import { standardInput } from "@/utils/Tokens"
 
@@ -12,10 +12,10 @@ interface InputComponentsProps {
   idElement: string
   nameRegister: string
   listValues?: valuesSelect[]
+  register: UseFormRegister<any>
 }
 
-export default function InputComponents({ label, typeElement, idElement, listValues, nameRegister }: InputComponentsProps) {
-  const { register } = useForm()
+export default function InputComponents({ label, typeElement, idElement, listValues, nameRegister, register }: InputComponentsProps) {
   return (
     <>
       <label htmlFor={ idElement } className="font-semibold">

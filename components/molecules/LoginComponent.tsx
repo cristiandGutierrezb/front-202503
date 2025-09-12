@@ -9,8 +9,6 @@ import { loginScheme } from "@/schemas/login"
 
 import { loginService } from "@/libs/authService"
 
-import { standardInput } from "@/utils/Tokens"
-
 export default function LoginComponent() {
 
   const { 
@@ -45,6 +43,7 @@ export default function LoginComponent() {
           typeElement="text"
           idElement="email"
           nameRegister="user"
+          register={register}
         />
       </div>
       <div>
@@ -53,6 +52,7 @@ export default function LoginComponent() {
           typeElement="password"
           idElement="password"
           nameRegister="password"
+          register={register}
         />
       </div>
 
